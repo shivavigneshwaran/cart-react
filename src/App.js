@@ -11,7 +11,8 @@ import men_banner from './Components/Assets/banner_mens.png';
 import women_banner from './Components/Assets/banner_women.png';
 import kids_banner from './Components/Assets/banner_kids.png';
 import Footer from './Components/Footer/Footer';
-import Offers from './Components/Offers/Offers'
+import Offers from './Components/Offers/Offers';
+
 
 
 function App() {
