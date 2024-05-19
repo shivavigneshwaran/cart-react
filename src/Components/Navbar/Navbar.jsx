@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import './Navbar.css';
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
+import logo from '../Assets/logo.png';
+import cart_icon from '../Assets/cart_icon.png';
 import { Link } from 'react-router-dom';
+
+
 const Navbar = () =>{
     const [menu,setMenu] = useState("shop");
     return (
     <div className='navbar'>
         <div className='nav-logo'>
         <img src={logo} alt="logo" />
-        <p>Shopper</p>
+        <p>SHOPPER</p>
         </div>
         <ul className="nav-menus">
             <li onClick={()=>{setMenu("shop")}}><Link to={'/'} style={{ textDecoration:"none" }}>Shop</Link> {menu === "shop" ? <hr/> : <></>}</li>
@@ -19,9 +21,16 @@ const Navbar = () =>{
             <li onClick={()=>{setMenu("kids")}}><Link to={'/kids'} style={{ textDecoration:"none" }}>Kids</Link> {menu === "kids" ? <hr/> : <></>}</li>
         </ul>
         <div className='nav-login-cart'>
-            <Link to={'/login'}><button>Login</button></Link>
+           
             <Link to={'/cart'}><img src={cart_icon} alt='cart_logo'/></Link>
             <div className='nav-cart-count'>0</div>
+
+            <div className='loginpop'><Link to={'/login'}><button>Login</button></Link></div>
+            <ul className='popup'>
+                <li>User Name: sivavignesh</li>
+                <li>Email : sivavigneshwaran@gmail.com</li>
+                <li><Link to={'/login'}><button className='logbtn'>Logout</button></Link></li>
+            </ul>
         </div>
     </div>
     )
