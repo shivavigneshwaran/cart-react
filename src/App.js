@@ -12,6 +12,9 @@ import women_banner from './Components/Assets/banner_women.png';
 import kids_banner from './Components/Assets/banner_kids.png';
 import Footer from './Components/Footer/Footer';
 import { AuthProvider, useAuth } from './Context/AuthContext';
+import Offers from './Components/Offers/Offers';
+
+
 
 function App() {
   return (

@@ -6,6 +6,9 @@ import cart_icon from '../Assets/cart_icon.png'
 import { Link,useNavigate  } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 import { toast, ToastContainer } from 'react-toastify';
+
+
+
 const Navbar = () =>{
     const [menu,setMenu] = useState("shop");
     const { isAuthenticated,logout } = useContext(AuthContext);
@@ -33,6 +36,11 @@ const Navbar = () =>{
                 {isAuthenticated ? <button onClick={handleLogout}>Logout</button> : <Link to={'/login'}><button>Login</button></Link>}
                 {isAuthenticated && (<><Link to={'/cart'}><img src={cart_icon} alt='cart_logo'/></Link>
                 <div className='nav-cart-count'>0</div></>)}
+                <ul className='popup'>
+                    <li>User Name: sivavignesh</li>
+                    <li>Email : sivavigneshwaran@gmail.com</li>
+                </ul>
+                
                 
             </div>
         </div>
