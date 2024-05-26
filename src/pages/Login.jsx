@@ -43,7 +43,6 @@ const LogIn = () => {
            
         } catch (error) {
             if (error.response && error.response.status === 400) {
-                console.log(error.response.data.message);
                 toast.error(error.response.data.message);
             } else {
                 console.log(error);
@@ -55,30 +54,29 @@ const LogIn = () => {
     return (
         <>
         <div className="login">
-        <div className="login-container">
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit(formSubmit)}>
-            <div className="login-fields">
-                <input type="text" placeholder="Your Name" {...register('name')}/>
-                <div><span className="error-message">{errors.name?.message}</span></div>
-                <input type="email" placeholder="Email Address" {...register('email')}/>
-                <div><span className="error-message">{errors.email?.message}</span></div>
-                <input type="password" placeholder="Password" {...register('password')}/>
-                <div><span className="error-message">{errors.password?.message}</span></div>
-            </div>
-            <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? <center><BiLoaderCircle className="spinner" /></center> : 'Continue'}
-            </button> 
-            </form>
-            
-            <p className="login-login">Create an Account ? <span><a href="/register">Register here</a></span></p>
-            <div className="login-agree">
-                <input type="checkbox" name="" id=""/>
-                <p>By continuing, i agree to the terms of use & privacy</p>
+            <div className="login-container">
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit(formSubmit)}>
+                <div className="login-fields">
+                    <input type="text" placeholder="Your Name" {...register('name')}/>
+                    <div><span className="error-message">{errors.name?.message}</span></div>
+                    <input type="email" placeholder="Email Address" {...register('email')}/>
+                    <div><span className="error-message">{errors.email?.message}</span></div>
+                    <input type="password" placeholder="Password" {...register('password')}/>
+                    <div><span className="error-message">{errors.password?.message}</span></div>
+                </div>
+                <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? <center><BiLoaderCircle className="spinner" /></center> : 'Continue'}
+                </button> 
+                </form>
+                
+                <p className="login-login">Create an Account ? <span><a href="/register">Register here</a></span></p>
+                <div className="login-agree">
+                    <input type="checkbox" name="" id=""/>
+                    <p>By continuing, i agree to the terms of use & privacy</p>
+                </div>
             </div>
         </div>
-
-    </div>
          <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         </>
     

@@ -14,8 +14,6 @@ import Footer from './Components/Footer/Footer';
 import { AuthProvider, useAuth } from './Context/AuthContext';
 import Offers from './Components/Offers/Offers';
 
-
-
 function App() {
   return (
     <div>
