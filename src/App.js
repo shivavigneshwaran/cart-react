@@ -23,7 +23,7 @@ function App() {
         <AuthProvider>
         <Navbar />
           <Routes>
-            < Route path='/' element={<Shop />} />
+            <Route path='/' element={<Shop />} />
             <Route path='/mens' element={<ShopCategory banner={men_banner} category="men" />} />
             <Route path='/womens' element={<ShopCategory banner={women_banner} category="women" />} />
             <Route path='/kids' element={<ShopCategory banner={kids_banner} category="kid" />} />
@@ -43,7 +43,7 @@ function App() {
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? <Navigate to="/" /> : <Navigate to="/login" />;
 }
 
 export default App;

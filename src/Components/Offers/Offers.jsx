@@ -1,20 +1,26 @@
 import React from "react";
 import './Offers.css';
 import exc_img from '../Assets/exclusive_image.png';
+import { Box, Button, Heading, SimpleGrid,Stack,Text } from "@chakra-ui/react";
 
 const Offers=() =>{
     return(
-        <div className="offer">
-            <div className="offers-left">
-                <h1>Exclusive</h1>
-                <h1>Offers For You</h1>
-                <p>ONLY ON BEST SELLERS PRODUCTS</p>
-                <button>Check Now</button>
-            </div>
-            <div className="offer-right">
-                <img src={exc_img} alt="exclusive image" />
-            </div>
-        </div>
+        <Box className="offer" >
+            <SimpleGrid templateColumns='repeat(2, minmax(250px, 1fr))'gap="20px" >
+                <Box display="flex" justifyContent="center" alignItems="center"> 
+                    <Stack p="10px">  
+                        <Heading>Exclusive</Heading>
+                        <Heading>Offers For You</Heading>
+                        <br />
+                        <Text as="p">ONLY ON BEST SELLERS PRODUCTS</Text>
+                        <Button mt="5px" _hover={{bg:"#001259"}}>Check Now</Button>
+                    </Stack>
+                </Box>
+                <Box>
+                    <img src={exc_img} alt="exclusive image" style={{width:"80%"}} />
+                </Box>
+            </SimpleGrid>
+        </Box>
     )
 }
 

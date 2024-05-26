@@ -1,8 +1,9 @@
 .loginsignup{
     width: 100%;
     height: auto;
-    background: linear-gradient(180deg, #fce3fe, #e1ffea22 100%);
-    padding-top: 100px;
+    background: linear-gradient(360deg, #ecf4ff 0%,#e1ffea22 60%);
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .loginsignup-container{
     width: 580px;
@@ -10,9 +11,13 @@
     background: #fff;
     margin: auto;
     padding: 40px 60px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 7px 2px #319795;
 }
-.loginsignup-container h1{
-    margin:20px 0px;
+.loginsignup-container h2{
+    text-align: center;
+    font-size: 30px;
+    margin-left:-10px;
 }
 .loginsignup-fields{
     display: flex;

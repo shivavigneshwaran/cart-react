@@ -1,16 +1,18 @@
 import React from "react";
 import './NewsLetter.css';
+import {FormControl,FormLabel,FormErrorMessage,FormHelperText, Heading,Text,Input,Button,Box} from '@chakra-ui/react'
 
 const NewsLetter=()=>{
     return(
-        <div className="newsletter">
-            <h1>Get Exclusive Offers on Your Email</h1>
-            <p>Subscribe to our newsletter and stay updated</p>
-            <div>
-                <input type="email" placeholder="Your Email ID" />
-                <button>Subscribe</button>
-            </div>
-        </div>
+        <FormControl className="newsletter">
+            <Heading>Get Exclusive Offers on Your Email</Heading>
+            <Text cs="p">Subscribe to our newsletter and stay updated</Text>
+            <Box >
+                <Input type='email'/>
+                <Button type='submit' _hover={{bg:"#001259"}}>Subscribe</Button>
+            </Box>
+        </FormControl>
+       
     )
 }
 
