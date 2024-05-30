@@ -4,10 +4,15 @@ const app = express();
 const dbo = require("./Config/db");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
+const router = express.Router();
+
 
 // Middleware
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 
 // Database connection
 dbo.getDataBase();
@@ -39,7 +44,21 @@ const Authorization = (req,res,next)=>{
 
 app.use('/product',Authorization, Product);  // Assuming Product is a router, use app.use
 
+//Image Storage Engine
+const storage = multer.diskStorage({
+    destination:'./upload/images',
+    filename:(req,file,cb)=>{
+        return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+});
+const upload = multer({storage:storage});
 app.use('/images', express.static('upload/images'));
+router.post('/upload',upload.single('product'),(req,res)=>{
+    res.json({
+        success:1,
+        imageUrl:`http://localhost:${port}/images/${req.file.filename}`
+    })
+});
 
 // Creating Endpoint for Registering the User
 app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
