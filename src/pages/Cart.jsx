@@ -1,9 +1,13 @@
 import React from "react";
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import './CSS/Cart.css';
 import { Box,Card,CardHeader,Heading,CardBody,Stack ,Table,Thead,Tbody,Tfoot,Tr,Th,Td,TableCaption,TableContainer, Input, Button,FormLabel, Spacer, Flex,} from "@chakra-ui/react";
+import { ShopContext } from "../Context/ShopContext";
+
 
 const Cart = () => {
+    const all_product = useContext(ShopContext);
+    const product = all_product.all_product.find((data) => data.id === Number(2));
     return (
         <Box>
             <Card>
@@ -25,11 +29,14 @@ const Cart = () => {
                             </Thead>
                             <Tbody>
                             <Tr h="100px">
-                                <Td w="120px"><img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"/></Td>
-                                <Td>Dingo Dog Bones<br/>The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</Td>
-                                <Td>12.99</Td>
+                                <Td w="120px"><img src={product.image}/></Td>
+                                <Td>{product.name}<br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci amet
+          optio, quis enim officia iusto perferendis. Nisi dolorum quaerat nemo
+          eaque, nostrum enim ea necessitatibus soluta magni dolorem ipsum
+          explicabo!.</Td>
+                                <Td>${product.new_price}</Td>
                                 <Td><Input type="number" min="1"/></Td>
-                                <Td>25.98</Td>
+                                <Td>${product.new_price}</Td>
                                 <Td><Button>Remove</Button></Td>
                             </Tr>
                             </Tbody>

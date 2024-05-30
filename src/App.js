@@ -13,7 +13,10 @@ import kids_banner from './Components/Assets/banner_kids.png';
 import Footer from './Components/Footer/Footer';
 import { AuthProvider, useAuth } from './Context/AuthContext';
 import Offers from './Components/Offers/Offers';
+import {disableReactDevTools} from '@fvilers/disable-react-devtools';
 
+
+if(process.env.NODE_ENV === "production") disableReactDevTools();
 
 
 function App() {
@@ -31,8 +34,8 @@ function App() {
               <Route path=':productId' element={<Product />} />
             </Route>
             <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path='/register' element={<Signup />} />
-            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<PublicRoute><Signup /></PublicRoute>} />
+            <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
           </Routes>
         </AuthProvider>
         <Footer />
@@ -43,7 +46,12 @@ function App() {
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? <Navigate to="/" /> : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/login" />;
+}
+
+const PublicRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return !isAuthenticated ? children : <Navigate to="/" />;
 }
 
 export default App;

@@ -49,7 +49,7 @@ const Navbar = () =>{
             <Box>
                 <HStack mr="30px" gap="30px">
                 {isAuthenticated && (<><Link to={'/cart'}><img src={cart_icon} alt='cart_logo'/></Link>
-                    <div className='nav-cart-count'>0</div></>)}
+                    <div className='nav-cart-count'>1</div></>)}
                 {
                 isAuthenticated ? 
                 <Popover>

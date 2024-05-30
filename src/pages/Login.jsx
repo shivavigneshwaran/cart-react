@@ -30,7 +30,7 @@ const LogIn = () => {
 
     const formSubmit = async (data) => {
         try {
-            const response = await axios.post('http://localhost:4000/auth/login', data);
+            const response = await axios.post('https://localhost:4000/auth/login', data);
             console.log('response',response);
             if(response.data.status === "success"){
                 const token = response.data.token;
@@ -45,7 +45,6 @@ const LogIn = () => {
            
         } catch (error) {
             if (error.response && error.response.status === 400) {
-                console.log(error.response.data.message);
                 toast.error(error.response.data.message);
             } else {
                 console.log(error);

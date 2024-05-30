@@ -7,8 +7,8 @@ import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  useNavigate } from 'react-router-dom';
-import { Box, FormControl, Heading,Input,Button, Container } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
+import { Box, FormControl, Heading, Input, Button, Container } from "@chakra-ui/react";
 
 // Define the validation schema
 const schema = yup.object({
@@ -21,7 +21,7 @@ const schema = yup.object({
 }).required();
 
 const Signup = () => {
-    const { register, handleSubmit, formState: { errors,isSubmitting } } = useForm({
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(schema)
     });
 
@@ -29,8 +29,8 @@ const Signup = () => {
 
     const formSubmit = async (data) => {
         try {
-            const response = await axios.post('http://localhost:4000/auth/register', data);
-            toast.success('Registration successful! 🎉');  
+            const response = await axios.post('https://localhost:4000/auth/register', data);
+            toast.success('Registration successful! 🎉');
             setTimeout(() => {
                 navigate('/cart');
             }, 500);
@@ -41,42 +41,40 @@ const Signup = () => {
                 console.log(error);
                 toast.error('Registration failed. Please try again.');
             }
-            
         }
     };
-    
 
     return (
         <>
-        <Box className="loginsignup">
-            <Container className="loginsignup-container">
-            <Heading cs="h1">REGISTER</Heading>
-            <FormControl className="formcont" onSubmit={handleSubmit(formSubmit)}>
-                <Input placeholder='Your Name' id="name" name="name" {...register('name')} />
-                <span className="error-message">{errors.name?.message}</span>
-                <Input placeholder="Email Address" id="email" name="email" {...register('email')}/>
-                <span className="error-message">{errors.email?.message}</span>
-                <Input placeholder="Password" id="password" name="password" {...register('password')}/>
-                <span className="error-message">{errors.password?.message}</span>
-                <Input placeholder="Password" id="confirmpassword" name="password" {...register('password')}/>
-                <span className="error-message">{errors.confirmpassword?.message}</span>
-                <Button type="submit" disabled={isSubmitting} _hover={{bg:"#001259"}}>
-                    {isSubmitting ? <center><BiLoaderCircle className="spinner" /></center> : 'Continue'}
-                </Button> 
-            </FormControl>
-            <Box padding="0px 0px 0px 40px" mt="-20px">
-                <p className="loginsignup-login">Already have an account? <span><a href="/login">Login here</a></span></p>
-                <div className="loginsignup-agree">
-                    <input type="checkbox" name="" id="" />
-                    <p>By continuing, I agree to the terms of use & privacy</p>
-                </div>
+            <Box className="loginsignup">
+                <Container className="loginsignup-container">
+                    <form onSubmit={handleSubmit(formSubmit)}>
+                        <Heading as="h1" ml="150px">REGISTER</Heading>
+                        <FormControl className="formcont">
+                            <Input placeholder='Your Name' id="name" name="name" {...register('name')} />
+                            <span className="error-message">{errors.name?.message}</span>
+                            <Input placeholder="Email Address" id="email" name="email" {...register('email')} />
+                            <span className="error-message">{errors.email?.message}</span>
+                            <Input type="password" placeholder="Password" id="password" name="password" {...register('password')} />
+                            <span className="error-message">{errors.password?.message}</span>
+                            <Input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" {...register('confirmPassword')} />
+                            <span className="error-message">{errors.confirmPassword?.message}</span>
+                            <Button type="submit" disabled={isSubmitting} _hover={{ bg: "#001259" }}>
+                                {isSubmitting ? <center><BiLoaderCircle className="spinner" /></center> : 'Continue'}
+                            </Button>
+                        </FormControl>
+                        <Box padding="0px 0px 0px 40px" mt="-20px">
+                            <p className="loginsignup-login">Already have an account? <span><a href="/login">Login here</a></span></p>
+                            <div className="loginsignup-agree">
+                                <input type="checkbox" name="" id="" />
+                                <p>By continuing, I agree to the terms of use & privacy</p>
+                            </div>
+                        </Box>
+                    </form>
+                </Container>
             </Box>
-            </Container>
-        </Box>
-         <ToastContainer position="top-right" top="70px" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} closeButton={true} pauseOnFocusLoss draggable pauseOnHover />
+            <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} closeButton={true} pauseOnFocusLoss draggable pauseOnHover />
         </>
-        
-        
     )
 }
 
