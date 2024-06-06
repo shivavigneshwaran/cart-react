@@ -13,12 +13,12 @@
 
 .newsletter h1{
     color:#454545;
-    font-size: 50px;
+    font-size:"xx-large";
     font-weight: 600;
 }
 .newsletter p{
     color:#454545;
-    font-size: 20px;
+    font-size:x-large;
 }
 
 .newsletter div{
@@ -26,13 +26,12 @@
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    width: 730px;
-    height: 60px;
+    width: 65%;
+    height: auto;
     border-radius: 80px;
     border: 1px solid #e3e3e3;
 }
 .newsletter Input{
-    width: 500px;
     margin-left:30px;
     border: none;
     outline: none;
@@ -42,7 +41,7 @@
     height: 50px;
 }
 .newsletter div button{
-    width: 240px;
+    width: 40%;
     height: 60px;
     border-radius: 80px;
     background: #ff4141;

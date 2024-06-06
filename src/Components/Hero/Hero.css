@@ -1,6 +1,7 @@
 .hero{
-    height: 500px;
+    height: auto;
     width: 100%;
+    padding: 10px;
     background: linear-gradient(180deg, #ecf4ff, #e1ffea22 60%);
 }
 
@@ -16,13 +17,12 @@
 
 .hero h2{
     color:black;
-    font-size: 35px;
     font-weight: 700;
 }
 
 .hero p{
     color:black;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
     margin-top:-10px
 }
@@ -42,7 +42,6 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 400px;
     height: 60px;
     background: #ff4141;
     border-radius: 75px;
