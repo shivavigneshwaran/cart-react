@@ -7,8 +7,6 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
-
-
 // Middleware
 
 app.use(express.json());
@@ -39,15 +37,6 @@ const Authorization = (req, res, next) => {
 
 app.use('/product', Product);  // Assuming Product is a router, use app.use
 
-// Image Storage Engine
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) => {
-        cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-    }
-});
-
-const upload = multer({ storage: storage });
 
 //Image Storage Engine
 const storage = multer.diskStorage({
