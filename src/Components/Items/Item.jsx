@@ -6,7 +6,7 @@ const Item = (props) => {
     console.log('props',props);
 
     return (
-        <Card _hover={{transform:"scale(1.05)",transition:"0.6s" }}>
+        <Card _hover={{transform:"scale(1.05)",transition:"0.6s" }} marginBottom="20px">
             <CardBody justifyContent="center">
                 <Link to={`/product/${props.id}`} ><img src={"http://localhost:4000/images/"+props.image} alt="" style={{width:"100%"}}/></Link>
                 <p>{props.name}</p>

@@ -4,7 +4,7 @@ import { Tabs,TabList,Tab,TabPanels,TabPanel } from "@chakra-ui/react";
 
 const DescriptionBox = () => {
     return(
-        <Tabs size='md' variant='enclosed' className="descriptionbox">
+        <Tabs size='md' variant='enclosed' className="descriptionbox" m={{base:"60px 20px",md:"60px 55px",lg:"80px 90px",xl:"120px 170px"}}>
             <TabList>
                 <Tab>Description</Tab>
                 <Tab>Reviews (1)</Tab>
