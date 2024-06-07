@@ -4,6 +4,8 @@ const app = express();
 const dbo = require("./Config/db");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
 
 // Middleware
 app.use(cors());
@@ -17,33 +19,48 @@ const AuthRoute = require('./routers/Auth');
 const Product = require('./routers/Product');
 const { findOne } = require('./Modals/User');
 
-
-const Authorization = (req,res,next)=>{
-
+// Authorization Middleware
+const Authorization = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
-    if(token === null || token === undefined) return res.status(400).json({message:"unAuthorized user please login...!"});
+    if (!token) return res.status(400).json({ message: "Unauthorized user, please login...!" });
 
-    jwt.verify(token,process.env.JWT_SECRET,(err,user)=>{
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        if (err) return res.status(400).json({ message: "Login after some time..!" });
 
-        if(err)return res.status(400).json({message:"login after sometime..!"});
-         
         req.user = user;
-
-        next()
-
+        next();
     });
-
 }
 
-app.use('/product',Authorization, Product);  // Assuming Product is a router, use app.use
+app.use('/product', Product);  // Assuming Product is a router, use app.use
+
+// Image Storage Engine
+const storage = multer.diskStorage({
+    destination: './upload/images',
+    filename: (req, file, cb) => {
+        cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 app.use('/images', express.static('upload/images'));
 
+// Define the upload route directly in the app
+app.post('/upload', upload.single('product'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ success: 0, message: 'No file uploaded' });
+    }
+    res.json({
+        success: 1,
+        imageUrl: `${req.file.filename}`
+    });
+});
+
 // Creating Endpoint for Registering the User
 app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
-
 
 const PORT = process.env.PORT || 4000;
 // Starting the server

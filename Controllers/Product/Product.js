@@ -1,5 +1,18 @@
 const Product = require('../../Modals/Product');
 const port = 4000;
+const products = async (req,res) => {
+        try {
+            const products = await Product.find();
+            if(!products){
+                return res.status(400).json({message:"Product is Empty"});
+            }else{
+                return res.status(200).json({data:products});
+            }
+
+        } catch (error) {
+            
+        }
+}
 const addproduct = async (req, res) => {
     try {
         const { id, name, image, category, new_price, old_price } = req.body;
@@ -30,5 +43,6 @@ const uploadImage = (req,res)=>{
 
 module.exports = {
     addproduct,
-    uploadImage
+    uploadImage,
+    products
 }
