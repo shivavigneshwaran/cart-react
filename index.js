@@ -6,10 +6,13 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
+const router = express.Router();
+
 
 // Middleware
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 
 // Database connection
 dbo.getDataBase();
@@ -46,7 +49,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//Image Storage Engine
+const storage = multer.diskStorage({
+    destination:'./upload/images',
+    filename:(req,file,cb)=>{
+        return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+});
+const upload = multer({storage:storage});
 app.use('/images', express.static('upload/images'));
+router.post('/upload',upload.single('product'),(req,res)=>{
+    res.json({
+        success:1,
+        imageUrl:`http://localhost:${port}/images/${req.file.filename}`
+    })
+});
 
 // Define the upload route directly in the app
 app.post('/upload', upload.single('product'), (req, res) => {
