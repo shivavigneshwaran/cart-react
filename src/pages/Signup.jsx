@@ -8,6 +8,7 @@ import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  useNavigate } from 'react-router-dom';
+import { Box, FormControl, Heading,Input,Button, Container } from "@chakra-ui/react";
 
 // Define the validation schema
 const schema = yup.object({
@@ -47,34 +48,34 @@ const Signup = () => {
 
     return (
         <>
-        <div className="loginsignup">
-            <div className="loginsignup-container">
-                <h1>Sign Up</h1>
-                <form onSubmit={handleSubmit(formSubmit)}>
-                    <div className="loginsignup-fields">
-                        <input type="text" placeholder="Your Name" {...register('name')} />
-                        <div><span className="error-message">{errors.name?.message}</span></div>
-                        <input type="email" placeholder="Email Address" {...register('email')} />
-                        <div><span className="error-message">{errors.email?.message}</span></div>
-                        <input type="password" placeholder="Password" {...register('password')} />
-                        <div><span className="error-message">{errors.password?.message}</span></div>
-                        <input type="password" placeholder="Confirm Password" {...register('confirmPassword')} />
-                        <div><span className="error-message">{errors.confirmPassword?.message}</span></div>
-                    </div>
-                    <button type="submit" disabled={isSubmitting}>
+        <Box className="loginsignup">
+            <Container className="loginsignup-container">
+            <form onSubmit={handleSubmit(formSubmit)}>
+            <Heading cs="h1">REGISTER</Heading>
+            <FormControl className="formcont">
+                <Input placeholder='Your Name' id="name" name="name" {...register('name')} />
+                <span className="error-message">{errors.name?.message}</span>
+                <Input placeholder="Email Address" id="email" name="email" {...register('email')}/>
+                <span className="error-message">{errors.email?.message}</span>
+                <Input placeholder="Password" id="password" name="password" {...register('password')}/>
+                <span className="error-message">{errors.password?.message}</span>
+                <Input placeholder="Password" id="confirmpassword" name="password" {...register('password')}/>
+                <span className="error-message">{errors.confirmpassword?.message}</span>
+                <Button type="submit" disabled={isSubmitting} _hover={{bg:"#001259"}}>
                     {isSubmitting ? <center><BiLoaderCircle className="spinner" /></center> : 'Continue'}
-                    </button>
-                </form>
-                
+                </Button> 
+            </FormControl>
+            <Box padding="0px 0px 0px 40px" mt="-20px">
                 <p className="loginsignup-login">Already have an account? <span><a href="/login">Login here</a></span></p>
                 <div className="loginsignup-agree">
                     <input type="checkbox" name="" id="" />
                     <p>By continuing, I agree to the terms of use & privacy</p>
                 </div>
-            </div>
-           
-        </div>
-         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+            </Box>
+            </form>
+            </Container>
+        </Box>
+         <ToastContainer position="top-right" top="70px" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} closeButton={true} pauseOnFocusLoss draggable pauseOnHover />
         </>
         
         

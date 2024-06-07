@@ -1,8 +1,7 @@
 .hero{
-    height: 600px;
-    /* border: 1px solid black; */
-    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-    display: flex;
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(180deg, #ecf4ff, #e1ffea22 60%);
 }
 
 .hero-left{
@@ -15,16 +14,17 @@
     line-height: 1.1;
 }
 
-.hero-left h2{
-    color: #090909;
-    font-size: 26px;
-    font-weight: 600;
+.hero h2{
+    color:black;
+    font-size: 35px;
+    font-weight: 700;
 }
 
-.hero-left p{
-    color: #171717;
-    font-size: 80px;
-    font-weight: 700;
+.hero p{
+    color:black;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top:-10px
 }
 
 .hero-hand-icon {
@@ -37,28 +37,17 @@
     width: 105px;
 }
 
-.hero-latest-btn {
+.hero button{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 310px;
-    height: 70px;
+    width: 400px;
+    height: 60px;
     background: #ff4141;
     border-radius: 75px;
     margin-top: 30px;
     color: white;
     font-size: 22px;
     font-weight: 500;
-}
-
-
-.hero-right{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.hero-right img{
-    width: 70%;
 }

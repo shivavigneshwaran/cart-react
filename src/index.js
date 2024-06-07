@@ -7,6 +7,7 @@ import ShopContextProvider from './Context/ShopContext';
 import { ChakraProvider } from '@chakra-ui/react';
 import {store} from './redux/store';
 import { Provider } from 'react-redux'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <ShopContextProvider>

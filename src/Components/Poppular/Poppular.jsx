@@ -1,18 +1,31 @@
-import react from "react";
+import react ,{useEffect,useState} from "react";
 import data_product from "../Assets/data";
 import Item from "../Items/Item";
-import './Poppular.css';
-const Poppular = () => {
+import { Box, Card, CardBody, CardHeader, Container, HStack, Text } from "@chakra-ui/react";
+const Poppular = ({datas}) => {
+  
+   
     return (
-    <div className={'popular'}>
-        <h1>Poppular In Women</h1>
-        <hr/>
-        <div className="poppular-item">
-            {data_product.map((item,i) => { 
-                return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
-                })}
-        </div>
-    </div>
+    <Box bg="linear-gradient(360deg, #ecf4ff, transparent)" mt="10px">
+    <Card>
+        <CardHeader textAlign="center" padding="20px 20px 0px 20px">
+            <Text color="#717171" fontWeight="600" textTransform="uppercase" fontSize="30px">Poppular In Women</Text>
+        </CardHeader>
+        <CardBody justifyContent="center" display="flex">
+            <Card gap="30px" p="20px" w="85%">
+                <CardBody>
+                    <HStack w="90%" h="auto" gap="60px">     
+                        {
+                            datas?.slice(1, 5)?.map((item,i) => { 
+                                return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
+                            })
+                        }
+                    </HStack>
+                </CardBody>
+            </Card>
+        </CardBody>
+    </Card>
+    </Box>
     )
 }
 
