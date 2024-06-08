@@ -30,7 +30,7 @@ const LogIn = () => {
 
     const formSubmit = async (data) => {
         try {
-            const response = await axios.post('https://localhost:4000/auth/login', data);
+            const response = await axios.post('https://localhost-44v9.onrender.com/auth/login', data);
             console.log('response',response);
             if(response.data.status === "success"){
                 const token = response.data.token;

@@ -29,7 +29,7 @@ const Signup = () => {
 
     const formSubmit = async (data) => {
         try {
-            const response = await axios.post('https://localhost:4000/auth/register', data);
+            const response = await axios.post('https://localhost-44v9.onrender.com/auth/register', data);
             toast.success('Registration successful! 🎉');
             setTimeout(() => {
                 navigate('/cart');

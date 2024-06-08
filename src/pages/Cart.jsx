@@ -121,7 +121,7 @@ const Cart = ({ productCount, cart }) => {
                         
                       >
                         <HStack flex="1" spacing={4}>
-                          <Image boxSize={"100px"} borderRadius={"10px"} src={"http://localhost:4000/images/" + item.image} />
+                          <Image boxSize={"100px"} borderRadius={"10px"} src={"https://localhost-44v9.onrender.com/images/" + item.image} />
                           <VStack align="start">
                             <Text fontWeight="bold">{item.name}</Text>
                             <Text>Color: {item.color}</Text>

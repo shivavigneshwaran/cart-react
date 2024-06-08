@@ -26,23 +26,23 @@ const ProductDisplay = (props) => {
     <Box className="Productdisplay"  m={{base:"0px 10px",md:"0px 50px",lg:"0px 90px",xl:"0px 170px"}}>
        <Hide breakpoint='(max-width: 780px)'>
         <VStack width={{base:"20%",md:"8rem",lg:"8rem",xl:"8rem"}}>
-            <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-            <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-            <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-            <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
+            <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+            <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+            <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+            <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
         </VStack>
         </Hide>
         <Box w={{base:"40%",md:"25rem",lg:"25rem",xl:"25rem"}} padding={{base:"2px",md:"10px",lg:"10px",xl:"10px"}} h={{base:"410px",md:"586px",lg:"586px",xl:"586px"}}>
         <Hide breakpoint='(max-width: 780px)'>
-            <img src={"http://localhost:4000/images/"+product.image} alt="" className="productimage-main-img" />
+            <img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="" className="productimage-main-img" />
         </Hide>
             <Show breakpoint='(max-width: 780px)'>
-            <img src={"http://localhost:4000/images/"+product.image} alt="" className="productimage-main-img" height="450px" />
+            <img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="" className="productimage-main-img" height="450px" />
             <HStack width={{base:"100%"}}>
-              <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-              <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-              <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
-              <Box mt="10px"><img src={"http://localhost:4000/images/"+product.image} alt="product_img" /></Box>
+              <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+              <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+              <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
+              <Box mt="10px"><img src={"https://localhost-44v9.onrender.com/images/"+product.image} alt="product_img" /></Box>
             </HStack>
             </Show>
         </Box>
