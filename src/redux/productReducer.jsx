@@ -6,7 +6,7 @@ const initialState = {
   status:'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
   error:null
 }
-const Product_url = 'http://localhost:4000/product/getproducts';
+const Product_url = 'https://localhost-44v9.onrender.com/product/getproducts';
 export const fetchProduct = createAsyncThunk('products/fetchproducts',async ()=>{
 
   try {
