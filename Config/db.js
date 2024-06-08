@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 async function getDataBase() {
-    // Retrieve the MongoDB URL from the environment variables
-    const dbUrl = process.env.MONGODB_URL;
-
-    // Connect to MongoDB
+    //DataBase Connection With MongoDB
+    const encodedPassword = encodeURIComponent(process.env.DB_PASSWORD);
+    const dbUrl = `mongodb+srv://sivvignesh:${encodedPassword}@cluster0.o131g3b.mongodb.net/`;
     await mongoose.connect(dbUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -16,4 +15,4 @@ async function getDataBase() {
 
 module.exports = {
     getDataBase
-};
+}
