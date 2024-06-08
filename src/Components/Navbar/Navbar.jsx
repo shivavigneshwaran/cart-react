@@ -57,7 +57,7 @@ const Navbar = ({productCount}) =>{
             </Hide>
             <Spacer />
             <Box>
-                <HStack mr="30px" gap="30px">
+                <HStack mr={{base:"10px",md:"30px",lg:"30px",xl:"30px"}} gap={{base:"15px",md:"30px",lg:"30px",xl:"30px"}}>
                 {isAuthenticated && (<><Link to={'/cart'}><img src={cart_icon} alt='cart_logo'/></Link>
                     <div className='nav-cart-count'>{count}</div></>)}
                 {

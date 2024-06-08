@@ -33,9 +33,6 @@ function App() {
     const error = useSelector((state) => state?.products?.error);
     const productCount = useSelector((state) => state?.productCount?.count);
 
-
-
-
   useEffect(()=>{
     dispatch(fetchProduct());
     dispatch(addCount(totalQuantity));
