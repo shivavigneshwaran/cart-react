@@ -8,9 +8,9 @@ import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  useNavigate } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext';
-import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Link } from "@chakra-ui/react";
+import { Link,useNavigate  } from 'react-router-dom';
+import { Box, FormControl, Heading,Input,Button, Container,Hide,Show } from "@chakra-ui/react";
 
 
 // Define the validation schema
