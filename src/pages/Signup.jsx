@@ -7,7 +7,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Text} from "@chakra-ui/react";
 
 // Define the validation schema
@@ -65,7 +65,7 @@ const Signup = () => {
                 </Button> 
             </FormControl>
             <Box padding="0px 0px 0px 40px" mt="-20px">
-                <p className="loginsignup-login">Already have an account? <span><a href="/login">Login here</a></span></p>
+                <p className="loginsignup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
                 <div className="loginsignup-agree">
                     <input type="checkbox" name="" id="" />
                     <p>By continuing, I agree to the terms of use & privacy</p>
@@ -91,7 +91,7 @@ const Signup = () => {
                     </Button> 
                 </FormControl>
                 <Box padding="0px 0px 0px 40px" mt="-20px">
-                    <p className="loginsignup-login">Already have an account? <span><a href="/login">Login here</a></span></p>
+                    <p className="loginsignup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
                     <div className="loginsignup-agree">
                         <input type="checkbox" name="" id="" />
                         <Text fontSize="12px !important">By continuing, I agree to the terms of use & privacy</Text>
