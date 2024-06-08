@@ -10,7 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  useNavigate } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext';
-import { Box, FormControl, Heading,Input,Button, Container,Hide,Show } from "@chakra-ui/react";
+import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Link } from "@chakra-ui/react";
 
 
 // Define the validation schema
@@ -73,7 +73,7 @@ const LogIn = () => {
                 </Button> 
             </FormControl>
             <Box padding="0px 0px 0px 40px" mt="-20px">
-                <p className="login-login">Create an Account ? <span><a href="/register">Register here</a></span></p>
+                <p className="login-login">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
                 <div className="login-agree">
                     <input type="checkbox" name="" id="" {...register('Accept the terms ans conditions')}/>
                     <p>By continuing, i agree to the terms of use & privacy</p>
@@ -98,7 +98,7 @@ const LogIn = () => {
                 </Button> 
             </FormControl>
             <Box padding="0px 0px 0px 40px" mt="-20px">
-                <p className="login-login">Create an Account ? <span><a href="/register">Register here</a></span></p>
+                <p className="login-login">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
                 <div className="login-agree">
                     <input type="checkbox" name="" id="" {...register('Accept the terms ans conditions')}/>
                     <p>By continuing, i agree to the terms of use & privacy</p>
