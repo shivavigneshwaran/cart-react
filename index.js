@@ -9,6 +9,29 @@ const path = require("path");
 const router = express.Router();
 // Middleware
 
+// Define allowed origins
+const allowedOrigins = [
+    'https://shopper-004m.onrender.com',
+    'http://localhost:3000' // If you're also running a frontend locally
+  ];
+  
+  // Configure CORS options
+  const corsOptions = {
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true // If you need to allow cookies or authorization headers
+  };
+  
+  // Use the CORS middleware
+  app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cors());
 
