@@ -12,7 +12,7 @@ const httpProxy = require('http-proxy');
 
 // Define allowed origins
 const allowedOrigins = [
-    'https://shopper-004m.onrender.com',
+    'https://shopper-004m.onrender.com/*',
     'http://localhost:3000' // If you're also running a frontend locally
   ];
   
