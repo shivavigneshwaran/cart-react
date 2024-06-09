@@ -76,7 +76,7 @@ const Signup = () => {
                     </Container>
                 </Hide>
                 <Show breakpoint='(max-width: 780px)'>
-                    <Container className="loginsignup-container" w="450px" padding="30px 20px">
+                    <Container className="loginsignup-container" w="90%" padding="30px 20px">
                         <form onSubmit={handleSubmit(formSubmit)}>
                             <Heading cs="h1">REGISTER</Heading>
                             <FormControl className="formcont">
@@ -93,10 +93,10 @@ const Signup = () => {
                                 </Button>
                             </FormControl>
                             <Box padding="0px 0px 0px 40px" mt="-20px">
-                                <p className="loginsignup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
+                                <p className="loginsignup-login" fontSize="16px">Already have an account? <span><Link to="/login">Login here</Link></span></p>
                                 <div className="loginsignup-agree">
                                     <input type="checkbox" name="" id="" />
-                                    <Text fontSize="12px !important">By continuing, I agree to the terms of use & privacy</Text>
+                                    <Text fontSize="10px !important">By continuing, I agree to the terms of use & privacy</Text>
                                 </div>
                             </Box>
                         </form>
