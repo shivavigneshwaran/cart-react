@@ -5,6 +5,7 @@ import * as yup from "yup";
 import "./CSS/Signup.css";
 import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
+import { useToast } from '@chakra-ui/react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link,useNavigate } from 'react-router-dom';
@@ -26,20 +27,44 @@ const Signup = () => {
     });
 
     const navigate = useNavigate();
+    const toast = useToast();
 
     const formSubmit = async (data) => {
         try {
             const response = await axios.post('https://localhost-44v9.onrender.com/auth/register', data);
-            toast.success('Registration successful! 🎉');
+            toast({
+                title: 'Registration successful! 🎉',
+                status: 'success',
+                duration: 5000,
+                position:'top-right',
+                top:'30px !important',
+                isClosable: true,
+                variant: 'solid',
+              })
             setTimeout(() => {
                 navigate('/cart');
             }, 500);
         } catch (error) {
             if (error.response && error.response.status === 400) {
-                toast.error('The User Is Already Existing');
+                toast({
+                    title: 'The User Is Already Existing',
+                    status: 'error',
+                    duration: 5000,
+                    position:'top-right',
+                    top:'30px !important',
+                    isClosable: true,
+                    variant: 'solid',
+                  })
             } else {
-                console.log(error);
-                toast.error('Registration failed. Please try again.');
+                toast({
+                    title: 'Registration failed. Please try again.',
+                    status: 'error',
+                    duration: 5000,
+                    position:'top-right',
+                    top:'30px !important',
+                    isClosable: true,
+                    variant: 'solid',
+                  })
             }
         }
     };
@@ -75,7 +100,7 @@ const Signup = () => {
             </Container>
         </Hide>
         <Show breakpoint='(max-width: 780px)'>
-            <Box className="loginsignup-container" w="450px" padding="30px 20px">
+            <Box className="loginsignup-container" w="90%" padding="30px 20px">
                 <Heading cs="h1">REGISTER</Heading>
                 <FormControl className="formcont" onSubmit={handleSubmit(formSubmit)}>
                     <Input placeholder='Your Name' id="name" name="name" {...register('name')} />

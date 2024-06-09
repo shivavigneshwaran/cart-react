@@ -11,7 +11,8 @@ import { TbMoodKid } from "react-icons/tb";
 import "./Navbar.css";
 // import { Avatar, Box, Button, CardHeader, Center, Flex, HStack, Heading, List, ListItem, Spacer,Text } from '@chakra-ui/react';
 import {useDispatch,useSelector} from "react-redux";
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '@chakra-ui/icons';
+import { useToast } from '@chakra-ui/react';
 import { Avatar, Box, Button, CardHeader, Center, Flex, HStack, Heading, List, ListItem, Spacer,Text,Show,Hide, Menu,MenuButton,MenuList,MenuItem,MenuItemOption,MenuGroup,MenuOptionGroup,MenuDivider } from '@chakra-ui/react';
 import {Popover,PopoverTrigger,PopoverContent,PopoverHeader,PopoverBody,PopoverFooter,PopoverArrow,PopoverCloseButton,PopoverAnchor} from '@chakra-ui/react'
 
@@ -27,13 +28,21 @@ const Navbar = ({productCount}) =>{
     const user=JSON.parse(localStorage.getItem("user"));
     console.log(user);
     const navigate = useNavigate();
+    const toast = useToast();
     const handleicon = ()=>{
         {active =="none" ? setactive("block"):setactive("none")};
     }
     const handleLogout = ()=>{
         logout();
         navigate('/'); 
-        toast.success('Logout successfully!');  
+        toast({
+            title: 'Logout successfully!',
+            status: 'success',
+            duration: 5000,
+            position:'top-right',
+            isClosable: true,
+            variant: 'solid',
+          })
     }
     return (
         <Flex as="nav"  p="4px" alignItems="center" w="100%" bg="#319795" color="#fff" position="sticky" top="0" zIndex="1000">
@@ -88,7 +97,6 @@ const Navbar = ({productCount}) =>{
                 </Show>
                 </HStack>
             </Box>
-            <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={true} pauseOnFocusLoss draggable pauseOnHover />  
         </Flex> 
     )
 }

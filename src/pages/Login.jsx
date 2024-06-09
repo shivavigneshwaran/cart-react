@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
-import { toast, ToastContainer } from 'react-toastify';
+import { useToast } from '@chakra-ui/react'
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../Context/AuthContext';
 import { Link,useNavigate  } from 'react-router-dom';
@@ -27,6 +27,7 @@ const LogIn = () => {
     });
 
     const navigate = useNavigate();
+    const toast = useToast();
 
     const formSubmit = async (data) => {
         try {
@@ -35,8 +36,16 @@ const LogIn = () => {
             if(response.data.status === "success"){
                 const token = response.data.token;
                 localStorage.setItem("user",JSON.stringify(response.data.user));
-                login(token);
-                toast.success('Login successful! 🎉');  
+                login(token); 
+                toast({
+                    title: 'Login successful! 🎉',
+                    status: 'success',
+                    duration: 5000,
+                    position:'top-right',
+                    top:'30px !important',
+                    isClosable: true,
+                    variant: 'solid',
+                  })
                 setTimeout(() => {
                     navigate('/cart');
                 }, 800);
@@ -45,10 +54,25 @@ const LogIn = () => {
            
         } catch (error) {
             if (error.response && error.response.status === 400) {
-                toast.error(error.response.data.message);
+                toast({
+                    title: error.response.data.message,
+                    status: 'error',
+                    duration: 5000,
+                    position:'top-right',
+                    top:'30px !important',
+                    isClosable: true,
+                    variant: 'solid',
+                  })
             } else {
-                console.log(error);
-                toast.error('Login failed. Please try again.');
+                toast({
+                    title: 'Login failed. Please try again.',
+                    status: 'error',
+                    duration: 5000,
+                    position:'top-right',
+                    top:'30px !important',
+                    isClosable: true,
+                    variant: 'solid',
+                  })
             }
             
         }
@@ -83,7 +107,7 @@ const LogIn = () => {
             </Container>
         </Hide>
         <Show breakpoint='(max-width: 780px)'>
-        <Box className="login-container" w="450px" padding="30px 20px">
+        <Box className="login-container" w="90%" padding="30px 20px">
             <form onSubmit={handleSubmit(formSubmit)}>
             <Heading cs="h2">LOGIN</Heading>
             <FormControl className="formcont">
@@ -108,7 +132,6 @@ const LogIn = () => {
             </Box>
         </Show>  
         </Box>
-         <ToastContainer position="top-right" top="70px" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss closeButton={true} draggable pauseOnHover />
         </>
     
     )

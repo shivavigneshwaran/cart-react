@@ -6,20 +6,36 @@ import { Box,SimpleGrid,Card,CardBody, VStack, Heading, Flex, Text, Button,Hide,
 import {useDispatch,useSelector} from "react-redux";
 import { toast, ToastContainer } from 'react-toastify';
 import { productCartDataManage } from "../../redux/ProductCountReducer";
+import { useToast } from '@chakra-ui/react';
 
 const ProductDisplay = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleCheckAuth = ()=>{
     const user = localStorage.getItem('user'); 
     if(!user){
-      toast.info('Make Login To Add products in cart..');  
+      toast({
+        title: 'Make Login To Add products in cart..',
+        status: 'info',
+        duration: 5000,
+        position:'top-right',
+        isClosable: true,
+        variant: 'solid',
+      })
       return false;
     }
     dispatch(productCartDataManage(product));
 
-  toast.info('Product Added to the cart..!');  
+  toast({
+    title: 'Product Added to the cart..!',
+    status: 'info',
+    duration: 5000,
+    position:'top-right',
+    isClosable: true,
+    variant: 'solid',
+  })
   }
   return (
     <>
