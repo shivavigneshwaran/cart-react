@@ -1,16 +1,14 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
 
-async function getDataBase() {
+const mongoose = require('mongoose');
+getDataBase().catch(err => console.log(err));
+
+async function getDataBase(){
     //DataBase Connection With MongoDB
-    const encodedPassword = encodeURIComponent(process.env.DB_PASSWORD);
-    const dbUrl = `mongodb+srv://sivvignesh:${encodedPassword}@cluster0.o131g3b.mongodb.net/`;
-    await mongoose.connect(dbUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(() => {
-        console.log('Database connected...!');
-    }).catch(err => console.log('Database connection error:', err));
+const encodedPassword = encodeURIComponent("098112@kec");
+await mongoose.connect(`mongodb+srv://sivvignesh:${encodedPassword}@cluster0.o131g3b.mongodb.net/`).then(()=>{
+    console.log('Database connected...!');
+});
+   
 }
 
 module.exports = {
