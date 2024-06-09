@@ -59,8 +59,8 @@ const LogIn = () => {
                     status: 'error',
                     duration: 5000,
                     position:'top-right',
-                    top:'30px !important',
-                    isClosable: true,
+                    variant: 'solid',
+                     isClosable: true,
                   })
             } else {
                 toast({
@@ -68,7 +68,7 @@ const LogIn = () => {
                     status: 'error',
                     duration: 5000,
                     position:'top-right',
-                    top:'30px !important',
+                    variant: 'solid',
                     isClosable: true,
                   })
             }
