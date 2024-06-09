@@ -93,12 +93,12 @@ app.post('/upload', upload.single('product'), (req, res) => {
 app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
 
 // Proxy frontend requests
-const proxy = httpProxy.createProxyServer({});
-const frontendUrl = 'https://shopper-004m.onrender.com'; // URL where your frontend is hosted
+// const proxy = httpProxy.createProxyServer({});
+// const frontendUrl = 'https://shopper-004m.onrender.com'; // URL where your frontend is hosted
 
-app.get('*', (req, res) => {
-    proxy.web(req, res, { target: frontendUrl });
-});
+// app.get('*', (req, res) => {
+//     proxy.web(req, res, { target: frontendUrl });
+// });
 
 const PORT = process.env.PORT || 4000;
 // Starting the server
