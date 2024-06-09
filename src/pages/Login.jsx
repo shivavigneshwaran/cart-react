@@ -123,7 +123,7 @@ const LogIn = () => {
                 <p className="login-login">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
                 <div className="login-agree">
                     <input type="checkbox" name="" id="" {...register('Accept the terms ans conditions')}/>
-                    <p>By continuing, i agree to the terms of use & privacy</p>
+                    <p fontSize:"10px">By continuing, i agree to the terms of use & privacy</p>
                 </div>
             </Box>
             </form>
