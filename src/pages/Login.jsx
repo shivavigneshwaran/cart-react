@@ -105,7 +105,7 @@ const LogIn = () => {
             </Container>
         </Hide>
         <Show breakpoint='(max-width: 780px)'>
-        <Box className="login-container" w="450px" padding="30px 20px">
+        <Box className="login-container" w="90%" padding="30px 20px">
             <form onSubmit={handleSubmit(formSubmit)}>
             <Heading cs="h2">LOGIN</Heading>
             <FormControl className="formcont">
