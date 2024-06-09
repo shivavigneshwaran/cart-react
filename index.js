@@ -12,7 +12,7 @@ const httpProxy = require('http-proxy');
 
 // Define allowed origins
 const allowedOrigins = [
-    'https://shopper-004m.onrender.com',
+    'https://shopper-004m.onrender.com/*',
     'http://localhost:3000' // If you're also running a frontend locally
   ];
   
@@ -71,12 +71,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage:storage});
 app.use('/images', express.static('upload/images'));
-router.post('/upload',upload.single('product'),(req,res)=>{
-    res.json({
-        success:1,
-        imageUrl:`http://localhost:${port}/images/${req.file.filename}`
-    })
-});
 
 // Define the upload route directly in the app
 app.post('/upload', upload.single('product'), (req, res) => {
