@@ -10,7 +10,7 @@ import { useToast } from '@chakra-ui/react'
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../Context/AuthContext';
 import { Link,useNavigate  } from 'react-router-dom';
-import { Box, FormControl, Heading,Input,Button, Container,Hide,Show } from "@chakra-ui/react";
+import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Text } from "@chakra-ui/react";
 
 
 // Define the validation schema
@@ -54,6 +54,7 @@ const LogIn = () => {
            
         } catch (error) {
             if (error.response && error.response.status === 400) {
+                toast.error(error.response.data.message);
                 toast({
                     title: error.response.data.message,
                     status: 'error',
@@ -64,6 +65,7 @@ const LogIn = () => {
                     variant: 'solid',
                   })
             } else {
+                console.log(error);
                 toast({
                     title: 'Login failed. Please try again.',
                     status: 'error',
@@ -125,7 +127,7 @@ const LogIn = () => {
                 <p className="login-login">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
                 <div className="login-agree">
                     <input type="checkbox" name="" id="" {...register('Accept the terms ans conditions')}/>
-                    <p>By continuing, i agree to the terms of use & privacy</p>
+                   <Text fontSize="10px !important">By continuing, I agree to the terms of use & privacy</Text>
                 </div>
             </Box>
             </form>

@@ -8,8 +8,8 @@ import axios from "axios";
 import { useToast } from '@chakra-ui/react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link,useNavigate } from 'react-router-dom';
-import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Text} from "@chakra-ui/react";
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, FormControl, Heading, Input, Button, Container, Hide, Show, Text } from "@chakra-ui/react";
 
 // Define the validation schema
 const schema = yup.object({
@@ -30,6 +30,7 @@ const Signup = () => {
     const toast = useToast();
 
     const formSubmit = async (data) => {
+        console.log('testformsubmit');
         try {
             const response = await axios.post('https://localhost-44v9.onrender.com/auth/register', data);
             toast({
@@ -119,13 +120,12 @@ const Signup = () => {
                     <p className="loginsignup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
                     <div className="loginsignup-agree">
                         <input type="checkbox" name="" id="" />
-                        <Text fontSize="12px !important">By continuing, I agree to the terms of use & privacy</Text>
+                        <Text fontSize="10px !important">By continuing, I agree to the terms of use & privacy</Text>
                     </div>
                 </Box>
             </Box>
         </Show>
         </Box>
-         <ToastContainer position="top-right" top="70px" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} closeButton={true} pauseOnFocusLoss draggable pauseOnHover />
         </>
     )
 }
