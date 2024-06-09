@@ -7,6 +7,7 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
+const httpProxy = require('http-proxy');
 // Middleware
 
 // Define allowed origins
@@ -90,6 +91,14 @@ app.post('/upload', upload.single('product'), (req, res) => {
 
 // Creating Endpoint for Registering the User
 app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
+
+// Proxy frontend requests
+const proxy = httpProxy.createProxyServer({});
+const frontendUrl = 'https://shopper-004m.onrender.com'; // URL where your frontend is hosted
+
+app.get('*', (req, res) => {
+    proxy.web(req, res, { target: frontendUrl });
+});
 
 const PORT = process.env.PORT || 4000;
 // Starting the server
