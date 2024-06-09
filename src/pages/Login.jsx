@@ -124,10 +124,10 @@ const LogIn = () => {
                 </Button> 
             </FormControl>
             <Box padding="0px 0px 0px 40px" mt="-20px">
-                <p className="login-login">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
+                <p className="login-login" fontSize="16px">Create an Account ? <span><Link to="/register">Register here</Link></span></p>
                 <div className="login-agree">
                     <input type="checkbox" name="" id="" {...register('Accept the terms ans conditions')}/>
-                   <Text fontSize="10px !important">By continuing, I agree to the terms of use & privacy</Text>
+                   <Text fontSize="12px !important"  marginLeft="3px">By continuing, I agree to the terms of use & privacy</Text>
                 </div>
             </Box>
             </form>
