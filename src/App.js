@@ -68,6 +68,7 @@ function App() {
             <Route path='/cart' element={<ProtectedRoute><Cart productCount={productCount} cart={cart}/></ProtectedRoute>} />
             <Route path='/register' element={<Signup />} />
             <Route path='/login' element={<Login />} />
+            <Route path='#/login' element={<Login />} />
           </Routes>
         </AuthProvider>
         <Footer />
