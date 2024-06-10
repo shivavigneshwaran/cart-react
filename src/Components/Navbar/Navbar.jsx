@@ -57,9 +57,9 @@ const Navbar = ({productCount}) =>{
                 <List flexDirection="row">
                 <HStack spacing="15%" fontSize="large" fontWeight="600">
                     <ListItem onClick={()=>{setMenu("shop")}}  _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/'}>Shop</Link></ListItem>
-                    <ListItem onClick={()=>{setMenu("men")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'#/mens'}>Men</Link></ListItem>
-                    <ListItem onClick={()=>{setMenu("women")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'#/womens'}>Women</Link></ListItem>
-                    <ListItem onClick={()=>{setMenu("kids")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'#/kids'}>Kids</Link></ListItem>
+                    <ListItem onClick={()=>{setMenu("men")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/mens'}>Men</Link></ListItem>
+                    <ListItem onClick={()=>{setMenu("women")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/womens'}>Women</Link></ListItem>
+                    <ListItem onClick={()=>{setMenu("kids")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/kids'}>Kids</Link></ListItem>
                 </HStack>
                 </List>
             </Box>
@@ -88,9 +88,9 @@ const Navbar = ({productCount}) =>{
                         </MenuButton>
                         <MenuList color="#319795">
                             <MenuItem onClick={()=>{setMenu("shop")}}><Link to={'/'}><Flex p="5px">Shop<FaUser style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
-                            <MenuItem onClick={()=>{setMenu("men")}} ><Link to={'#/mens'}><Flex p="5px">Men<FaUser style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
-                            <MenuItem onClick={()=>{setMenu("women")}}><Link to={'#/womens'}><Flex p="5px">Women<FaUser style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
-                            <MenuItem onClick={()=>{setMenu("kids")}}><Link to={'#/kids'}><Flex p="5px">Kids <TbMoodKid style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
+                            <MenuItem onClick={()=>{setMenu("men")}} ><Link to={'/mens'}><Flex p="5px">Men<FaUser style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
+                            <MenuItem onClick={()=>{setMenu("women")}}><Link to={'/womens'}><Flex p="5px">Women<FaUser style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
+                            <MenuItem onClick={()=>{setMenu("kids")}}><Link to={'/kids'}><Flex p="5px">Kids <TbMoodKid style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
                             <MenuItem><Link to={'/login'}><Flex p="5px">Login<LuLogIn style={{marginTop:"3px",marginLeft:"10px"}} /></Flex></Link></MenuItem>
                         </MenuList>
                     </Menu>
