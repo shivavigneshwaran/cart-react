@@ -7,7 +7,7 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
-const httpProxy = require('http-proxy');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 // Middleware
 
 // Define allowed origins
@@ -98,9 +98,7 @@ app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
 // Proxy requests to the frontend
 const frontendUrl = 'https://shopper-004m.onrender.com'; // URL where your frontend is hosted
 
-app.get('*', (req, res) => {
-    res.redirect(`${frontendUrl}${req.originalUrl}`);
-});
+app.use('/*', createProxyMiddleware({ target: frontendUrl, changeOrigin: true }));
 
 const PORT = process.env.PORT || 4000;
 // Starting the server
