@@ -94,6 +94,14 @@ app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
 //     proxy.web(req, res, { target: frontendUrl });
 // });
 
+
+// Proxy requests to the frontend
+const frontendUrl = 'https://shopper-004m.onrender.com'; // URL where your frontend is hosted
+
+app.get('*', (req, res) => {
+    res.redirect(`${frontendUrl}${req.originalUrl}`);
+});
+
 const PORT = process.env.PORT || 4000;
 // Starting the server
 app.listen(PORT, (error) => {
