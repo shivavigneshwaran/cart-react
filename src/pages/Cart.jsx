@@ -32,9 +32,11 @@ import mastercard from "../Components/Assets/mastercard.png";
 import AmericanExpress from "../Components/Assets/American_Express_logo.png";
 import { productCartDataManage,productCartDataDecrease } from "../redux/ProductCountReducer";
 import {useDispatch,useSelector} from "react-redux";
+import { Link,useNavigate  } from 'react-router-dom';
 
 
 const Cart = ({ productCount, cart }) => {
+  const navigate = useNavigate();
   const count = productCount;
   const [productData, setProductData] = useState([]);
   const dispatch = useDispatch();
@@ -44,33 +46,36 @@ const Cart = ({ productCount, cart }) => {
 
   function getData() {
     let cartData = cart;
-    console.log("cart", cartData);
+    
 
     setProductData(cartData);
   }
 
 
   const addData = (item)=>{
-    console.log('addData',item);
+    
     dispatch(productCartDataManage(item));
-    console.log('total',total);
+    
 
   }
 
   const decreaseData = (item) => {
-    console.log('decreaseData', item);
+   
     dispatch(productCartDataDecrease(item));
-    console.log('total',total);
+    
 
   }
 
+ 
+
+  
+
   useEffect(() => {
     getData();
-    console.log('total',total);
+    
   }, []);
 
   useEffect(() => {
-    console.log("productCount", count);
     getData();
   }, [count]);
 
@@ -291,7 +296,7 @@ const Cart = ({ productCount, cart }) => {
               </VStack>
             </CardBody>
             <CardFooter>
-              <Button w={"100%"} colorScheme="blue">Check Out</Button>
+              <Button w={"100%"} colorScheme="blue" onClick={()=>navigate('/stepper')}>Check Out</Button>
             </CardFooter>
           </Card>
         </GridItem>

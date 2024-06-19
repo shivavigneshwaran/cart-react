@@ -16,12 +16,13 @@ import kids_banner from './Components/Assets/banner_kids.png';
 import Footer from './Components/Footer/Footer';
 import { AuthProvider, useAuth } from './Context/AuthContext';
 import Offers from './Components/Offers/Offers';
-import {disableReactDevTools} from '@fvilers/disable-react-devtools';
+// import {disableReactDevTools} from '@fvilers/disable-react-devtools';
 import { fetchProduct } from "./redux/productReducer";
 import { addCount } from "./redux/ProductCountReducer";
+import StepperModule from './pages/StepperModule';
 
 
-if(process.env.NODE_ENV === "production") disableReactDevTools();
+// if(process.env.NODE_ENV === "production") disableReactDevTools();
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
             <Route path='/register' element={<Signup />} />
             <Route path='/login' element={<Login />} />
             <Route path='#/login' element={<Login />} />
+            <Route path='/stepper' element={<StepperModule />} /> 
           </Routes>
         </AuthProvider>
         <Footer />
