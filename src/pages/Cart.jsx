@@ -224,82 +224,30 @@ const Cart = ({ productCount, cart }) => {
                 </Box>
               </VStack>
             </CardBody>
-            <CardFooter>
-              <HStack>
-                <Button background={"#ffff"} textColor={"black"}>Back</Button>
-                <Button background={"#ff4141"} textColor={"#ffff"}>Cancel Order</Button>
-              </HStack>
-            </CardFooter>
           </Card>
         </GridItem>
-        <GridItem colSpan={{base:2,md:1,lg:1,xl:1}}>
+        
+        <GridItem colSpan={{base:2,md:1,lg:1,xl:1}} marginBottom="10px">
           <Card size={"sm"} borderRadius={"20px"}>
-            <CardHeader>
-              <Heading size="md">Coupon Code</Heading>
-            </CardHeader>
-            <Divider borderColor="gray.300" opacity="0.5" />
             <CardBody>
-              <VStack gap={5}>
-                <Input placeholder="Enter Coupon Code" variant="filled" _focus={{ boxShadow: "none" }} />
-                <Button w={"100%"} backgroundColor={"white"} variant={"outline"} textColor={"#319795"}>Apply Your Coupon</Button>
-              </VStack>
-            </CardBody>
-            <CardFooter>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem colSpan={{base:2,md:1,lg:1,xl:1}}>
-          <Card size={"sm"} borderRadius={"20px"}>
-            <CardHeader>
-              <Heading size="md">Order Summary</Heading>
-            </CardHeader>
-            <Divider borderColor="gray.300" opacity="0.5" />
-            <CardBody>
-              <VStack align="stretch" >
+              <VStack align="stretch" p='25px'>
                 <HStack  justifyContent="space-between">
-                  <Text  fontSize='md' textColor={"#989ca1"} >Discount</Text>
-                  <Text  fontSize='sm' fontWeight="600">₹00.00</Text>
-                </HStack>
-                <HStack  justifyContent="space-between">
-                  <Text  fontSize='md' textColor={"#989ca1"}>Delivery</Text>
-                  <Text  fontSize='sm' fontWeight="600">₹29.99</Text>
-                </HStack>
-                <HStack  justifyContent="space-between">
-                  <Text  fontSize='md' textColor={"#989ca1"}>Tax</Text>
-                  <Text  fontSize='sm' fontWeight="600">₹39.99</Text>
-                </HStack>
-                <HStack  justifyContent="space-between">
-                  <Text  fontSize='md' textColor={"#989ca1"}>Total</Text>
+                  <Text  fontSize='18px' textColor={"#989ca1"}>SubTotal</Text>
                   <Text  fontSize='lg' fontWeight="700" >₹{total}</Text>
                 </HStack>
-              </VStack>
-            </CardBody>
-            <CardFooter>
-             
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem colSpan={{base:2,md:0.5,lg:1,xl:1}} marginBottom={{base:"10px"}}>
-          <Card size={"sm"} borderRadius={"20px"}>
-            <CardHeader>
-              <Heading size="md">Payment Method</Heading>
-            </CardHeader>
-            <Divider borderColor="gray.300" opacity="0.5" />
-            <CardBody>
-              <VStack>
-                <HStack gap={"10px"} p={"0px 20px"}>
-                  <Image boxSize={"50px"} src={paypal} borderRadius={"10px"} />
-                  <Image boxSize={"50px"} src={visa} borderRadius={"10px"} />
-                  <Image boxSize={"50px"} src={mastercard} borderRadius={"10px"} />
-                  <Image boxSize={"50px"} src={AmericanExpress} borderRadius={"10px"} />
+                <HStack  justifyContent="space-between">
+                  <Text  fontSize='16px' textColor={"#989ca1"}>EMI Available <Link to='#' textColor={"black"}>Details</Link></Text>
+                </HStack>
+                
+                <HStack justifyContent="space-between" marginTop="20px">
+                  <Button background={"#ffff"} textColor={"black"}>Back</Button>
+                  <Button background={"#ff4141"} textColor={"#ffff"} onClick={()=>navigate('/stepper')}>Proceed to Buy</Button>
                 </HStack>
               </VStack>
             </CardBody>
-            <CardFooter>
-              <Button w={"100%"} colorScheme="blue" onClick={()=>navigate('/stepper')}>Check Out</Button>
-            </CardFooter>
           </Card>
         </GridItem>
+        
       </Grid>
     </Box>
   );

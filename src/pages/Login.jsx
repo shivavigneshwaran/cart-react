@@ -37,6 +37,7 @@ const LogIn = () => {
                 const token = response.data.token;
                 localStorage.setItem("user",JSON.stringify(response.data.user));
                 login(token); 
+                
                 toast({
                     title: 'Login successful! 🎉',
                     status: 'success',
@@ -54,7 +55,6 @@ const LogIn = () => {
            
         } catch (error) {
             if (error.response && error.response.status === 400) {
-                toast.error(error.response.data.message);
                 toast({
                     title: error.response.data.message,
                     status: 'error',
