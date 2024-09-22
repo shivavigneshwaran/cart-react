@@ -70,7 +70,7 @@ const Banner=()=>{
                 <Stack {...bannerleft}>  
                     <Heading {...bannerhead} fontSize="30px">New Arraivals</Heading>
                     <HStack mt={{base:"10px",md:"0px",lg:"0px",xl:"0px"}}><Text fontSize="25px" color="#fff !important" mt="15px">New</Text> <img src={hand_icon} style={{width:"60px"}} className="hero-hand-icon" alt="handimg" /></HStack>
-                    <Text cs="p" fontSize="25px"  color="#fff !important">Collections for Everyone</Text>
+                    <Text cs="p" fontSize={base:"20px",md:"25px",lg:"25px",xl:"25px"}  color="#fff !important">Collections for Everyone</Text>
                     <Button {...sliderbtn}>Latest Collection <img src={arrow_icon} alt="Bannerbtnimg" /></Button>
                 </Stack>
                 </Flex>
@@ -83,7 +83,7 @@ const Banner=()=>{
                 <Stack {...bannerleft} padding="100px 100px">  
                     <Heading {...bannerhead} fontSize="30px">SPECIAL SALES</Heading>
                     <HStack><Text fontSize="25px" fontWeight="300 !important">30% OFF</Text></HStack>
-                    <Text cs="p" fontSize="20px" fontWeight="300 !important">Bye 1 Get 1</Text>
+                    <Text cs="p" fontSize="20px" fontWeight="300 !important">Buy 1 Get 1</Text>
                     <Button {...sliderbtn}>Order Now<img src={arrow_icon} alt="Bannerbtnimg" /></Button>
                 </Stack>
                 </Flex>
