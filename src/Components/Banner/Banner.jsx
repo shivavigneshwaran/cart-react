@@ -95,7 +95,7 @@ const Banner=()=>{
         <div>
             <SimpleGrid {...template} >
                 <Flex {...templatebox}> 
-                <Stack {...bannerleft} padding={{base:"80px 80px",md:"50px 0px",lg:"80px 0px",xl:"80px 0px"}}>  
+                <Stack {...bannerleft} padding={{base:"50px 80px",md:"50px 0px",lg:"80px 0px",xl:"80px 0px"}}>  
                     <Heading {...bannerhead} fontSize="24px">Womens Collection</Heading>
                     <HStack><Text fontSize="25px" fontWeight="300 !important">New</Text> <img src={hand_icon} style={{width:"60px"}} className="hero-hand-icon" alt="handimg" /></HStack>
                     <Text cs="p" fontSize="25px" fontWeight="300 !important">Latest for Womens</Text>

@@ -11,10 +11,10 @@ import { TbMoodKid } from "react-icons/tb";
 import "./Navbar.css";
 // import { Avatar, Box, Button, CardHeader, Center, Flex, HStack, Heading, List, ListItem, Spacer,Text } from '@chakra-ui/react';
 import {useDispatch,useSelector} from "react-redux";
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon,Search2Icon } from '@chakra-ui/icons';
 import { useToast } from '@chakra-ui/react';
-import { Avatar, Box, Button, CardHeader, Center, Flex, HStack, Heading, List, ListItem, Spacer,Text,Show,Hide, Menu,MenuButton,MenuList,MenuItem,MenuItemOption,MenuGroup,MenuOptionGroup,MenuDivider } from '@chakra-ui/react';
-import {Popover,PopoverTrigger,PopoverContent,PopoverHeader,PopoverBody,PopoverFooter,PopoverArrow,PopoverCloseButton,PopoverAnchor} from '@chakra-ui/react'
+import { Avatar, Box, Button, CardHeader, Center, Flex, HStack, Heading, List, ListItem, Spacer,Text,Show,Hide, Menu,MenuButton,MenuList,MenuItem,MenuItemOption,MenuGroup,MenuOptionGroup,MenuDivider,Input,InputGroup,InputRightElement } from '@chakra-ui/react';
+import {Popover,PopoverTrigger,PopoverContent,Stack,PopoverHeader,PopoverBody,PopoverFooter,PopoverArrow,PopoverCloseButton,PopoverAnchor} from '@chakra-ui/react'
 
 
 
@@ -53,9 +53,9 @@ const Navbar = ({productCount}) =>{
             </Box>
             <Spacer />
             <Hide breakpoint='(max-width: 780px)'>
-            <Box w={{md:"50%",lg:"50%",xl:"30%"}} p="10px" >
+            <Box w={{md:"30%",lg:"50%",xl:"30%"}} p="10px" >
                 <List flexDirection="row">
-                <HStack spacing="15%" fontSize="large" fontWeight="600">
+                <HStack spacing={{md:"10%",lg:"15%",xl:"15%"}} fontSize="large" fontWeight="600">
                     <ListItem onClick={()=>{setMenu("shop")}}  _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/'}>Shop</Link></ListItem>
                     <ListItem onClick={()=>{setMenu("men")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/mens'}>Men</Link></ListItem>
                     <ListItem onClick={()=>{setMenu("women")}} _hover={{ fontWeight: 'bold', textDecoration:'underline' }}><Link to={'/womens'}>Women</Link></ListItem>
@@ -66,7 +66,17 @@ const Navbar = ({productCount}) =>{
             </Hide>
             <Spacer />
             <Box>
-                <HStack mr={{base:"10px",md:"30px",lg:"30px",xl:"30px"}} gap={{base:"15px",md:"30px",lg:"30px",xl:"30px"}}>
+                <HStack mr={{base:"10px",md:"0px",lg:"30px",xl:"30px"}} gap={{base:"15px",md:"15px",lg:"30px",xl:"30px"}}>
+                <Hide breakpoint='(max-width: 860px)'>
+                <Stack w={{md:"60%"}}> 
+                    <InputGroup>
+                        <Input placeholder='Search...' background="#fff" color="black" />
+                        <InputRightElement>
+                            <Search2Icon color="black" />
+                        </InputRightElement>
+                    </InputGroup>
+                </Stack>
+                </Hide>
                 {isAuthenticated && (<><Link to={'/cart'}><img src={cart_icon} alt='cart_logo'/></Link>
                     <div className='nav-cart-count'>{count}</div></>)}
                 {
