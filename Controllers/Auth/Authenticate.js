@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const User = require('../../Modals/User');
 const bcrypt = require('bcryptjs');
+const Address = require('../../Modals/Address');
+
 
 const register = async (req,res) => {
     console.log("Register endpoint hit");
@@ -41,20 +43,25 @@ const login = async (req,res)=>{
     try {
 
         const {name,email,password} = req.body;
-        const user = await User.findOne({email});
+        const user = await User.findOne({email},"name email phone password cartData");
         if (!user) return res.status(400).json({ message: 'Invalid email or password' });
          // Check if password is correct
          const isMatch = await bcrypt.compare(password, user.password);
          if (!isMatch) return res.status(400).json({ message: 'password is invalid' });
+
          const data = {
             user:{
-                id: user.id,
-
+                id: user.id
             }
          }
 
+         const address = await Address.find({userId:user._id},"_id address pincode landmark cityTown")
+         .populate('stateId','name')
+         .populate('countryId','name')
+         .exec();
+
          const token = jwt.sign(data, process.env.JWT_SECRET || 'secret_ecom', { expiresIn: '1h' });
-       return  res.status(200).json({status:"success",token :token,user:user });
+       return  res.status(200).json({status:"success",token :token,user:user,address:address });
         
     } catch (error) {
         
@@ -62,7 +69,6 @@ const login = async (req,res)=>{
     
  
  }
-
 module.exports = {
     register,
     login

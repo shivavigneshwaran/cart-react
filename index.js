@@ -41,6 +41,12 @@ dbo.getDataBase();
 // Importing routers
 const AuthRoute = require('./routers/Auth');
 const Product = require('./routers/Product');
+const Country = require('./routers/Country');
+const State = require('./routers/State');
+const Address = require('./routers/Address');
+const User = require('./routers/User');
+
+
 
 // Authorization Middleware
 const Authorization = (req, res, next) => {
@@ -56,9 +62,6 @@ const Authorization = (req, res, next) => {
     next();
   });
 };
-
-app.use('/product', Product);  // Assuming Product is a router, use app.use
-
 // Image Storage Engine
 const storage = multer.diskStorage({
   destination: './upload/images',
@@ -82,6 +85,25 @@ app.post('/upload', upload.single('product'), (req, res) => {
 
 // Creating Endpoint for Registering the User
 app.use('/auth', AuthRoute);  // Assuming AuthRoute is a router
+
+app.use('/country',Country);
+
+app.use('/product', Product);  // Assuming Product is a router, use app.use
+
+app.use("/state",State);
+
+app.use("/address",Address);
+
+app.use("/user",User);
+
+app.use("/addFieldsToUsers",async (req,res,next)=>{
+  const {id,phone,addressId} = req.body;
+  const user = await User.findByIdAndUpdate(id,{
+      phone:phone,
+      addressId:addressId,
+    });
+  return res.status(200).json({success:"success",data:user});
+});
 
 // Serve static files from the frontend build directory
 app.use(express.static(path.join(__dirname, 'frontend_build')));
