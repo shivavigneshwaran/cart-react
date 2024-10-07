@@ -94,7 +94,7 @@ const ProductDisplay = (props) => {
           </Box>
         </Box>
         <Button bg="#ffb500 !important">Buy Now</Button><br />
-        <Button marginTop={{base:"-20px",md:"20px",lg:"20px",xl:"20px"}}  marginBottom="40px" onClick={handleCheckAuth}>Add to Cart</Button>
+        <Button marginTop={{base:"20px",md:"20px",lg:"20px",xl:"20px"}}  marginBottom="40px" onClick={handleCheckAuth}>Add to Cart</Button>
         <p className="productdisplay-right-category"><span>Category :</span>Women, T-shirt, Crop Top</p>
         <p className="productdisplay-right-category"><span>Tags :</span>Modern, Latest</p>
         </Box>
