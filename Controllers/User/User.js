@@ -2,7 +2,7 @@ const User = require("../../Modals/User");
 
 const getUserAddress = async(req,res)=>{
 	try{
-		const {id} = req.body;
+		const { id } = req.query;
 		if(!id){
             return res.status(400).json({ message: 'User Id feild Required..!' });
 		}
