@@ -28,7 +28,7 @@ const addState = async (req,res) => {
 const getStates = async (req,res,next)=>{
 	try{
 		const state = await State.find({deletedAt:null},"_id name code");
-		if(country){
+		if(state){
 			return res.status(200).json({status:"Success",data:state})
 		}else{
 			return res.status(204).json({status:"Success",data:"State is Empty..!"});
