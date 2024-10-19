@@ -40,11 +40,38 @@ const getAddress = async (req,res)=>{
 	}catch(error){
 		console.log("Error: ", error);
 		return res.status(500).json({_status:"Fail",data:error.message || error});
-
 	}
+}
+
+
+const editAddress = async (req,res)=>{
+
+	try{
+		const { addressId } = req.params;
+		const {address,pincode,landmark,cityTown,stateId,countryId,userId} = req.body;
+
+		if(!addressId){
+            return res.status(400).json({ message: 'Address Id Required..!' });
+		}
+		const addressUpdate = await Address.findByIdAndUpdate({_id:addressId},{
+			address:address,
+			pincode:pincode,
+			landmark:landmark,
+			cityTown:cityTown,
+			stateId:stateId,
+			countryId:countryId,
+			userId:userId
+		});
+		return res.status(200).json({status:"Success",data:addressUpdate});
+	}catch(error){
+		console.log("Error: ", error);
+		return res.status(500).json({_status:"Fail",data:error.message || error});
+	}
+
 }
 
 module.exports = {
 	addAddress,
-	getAddress
+	getAddress,
+	editAddress
 }
