@@ -325,10 +325,8 @@ const StepperModule = () => {
                                       type="text"
                                       placeholder="Full Name"
                                       name="name"
-                                      value={userData.name || (userDetails && JSON.parse(userDetails).name)}
                                       onChange={handleChange}
                                       required
-                                      disabled = {true}
                                     />
                                   </FormControl>
                                   <FormControl mt={4}>
@@ -338,9 +336,8 @@ const StepperModule = () => {
                                       placeholder="Mobile Number"
                                       name="phone"
                                       onChange={handleChange}
-                                      value={userData.phone || (userDetails && JSON.parse(userDetails).phone)}
+                                      value={userData.phone}
                                       required
-                                      disabled = {true}
                                     />
                                   </FormControl>
                                   <FormControl mt={4}>
