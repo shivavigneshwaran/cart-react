@@ -11,10 +11,8 @@ const Shop = () => {
     const productData = useSelector((state) => state?.products?.products);
     const [datas , setDatas] = useState([]);
     useEffect(()=>{
-        if(productData.length !== 0 ){
-           
+        if(productData?.length !== 0 ){ 
             setDatas(productData);
-
         }
     },[]);
     return (

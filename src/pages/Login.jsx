@@ -6,11 +6,13 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { BiLoaderCircle } from "react-icons/bi";
 import axios from "axios";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../Context/AuthContext';
 import { Link,useNavigate  } from 'react-router-dom';
 import { Box, FormControl, Heading,Input,Button, Container,Hide,Show,Text } from "@chakra-ui/react";
+import {setAddress} from '../redux/StepperReducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 // Define the validation schema
@@ -28,6 +30,7 @@ const LogIn = () => {
 
     const navigate = useNavigate();
     const toast = useToast();
+    const dispatch = useDispatch();
 
     const formSubmit = async (data) => {
         try {
@@ -37,6 +40,7 @@ const LogIn = () => {
                 const token = response.data.token;
                 localStorage.setItem("user",JSON.stringify(response.data.user));
                 login(token); 
+                dispatch(setAddress(response?.data?.address));
                 
                 toast({
                     title: 'Login successful! 🎉',
